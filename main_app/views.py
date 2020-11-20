@@ -64,54 +64,64 @@ def show_all_student(request):
 
 
 def student_info(request):
-    def read_file():
-        try:
-            with open("info.json", "r") as project_json:
-                file = project_json.read()
-                info_list = json.loads(file)
+
+    if request.method == "POST":
+
+
+        def read_file():
+            try:
+                with open("info.json", "r") as project_json:
+                    file = project_json.read()
+                    info_list = json.loads(file)
+                    project_json.close()
+                    return info_list
+
+            except:
+                return []
+
+
+        def write_file(array):
+            with open("info.json", "w+") as project_json:
+                content = json.dumps(array, indent=4)
+                project_json.writelines(content)
                 project_json.close()
-                return info_list
 
-        except:
-            return []
 
-    def write_file(array):
-        with open("info.json", "w+") as project_json:
-            content = json.dumps(array, indent=4)
-            project_json.writelines(content)
-            project_json.close()
+        file = read_file()
+        id_list = []
+        for item in file:
+            id_list.append(item["ID"])
 
-    file = read_file()
-    id_list = []
-    for item in file:
-        id_list.append(item["ID"])
+        name = request.POST["name"]   
+        ID = request.POST["id"] 
+        section = request.POST["section"]
+        dep=request.POST["department"]
+        payment=request.POST["payment"]
 
-    name = request.GET["name"]
-    ID = request.GET["id"]
-    section = request.GET["section"]
-    dep=request.GET["department"]
-    payment=request.GET["payment"]
-
-    info_dic = {
-        "Name": name,
-        "ID": ID,
-        "Section": section,
-        "Department":dep,
-        "Payment Status":payment,
-    }
-    if ID in id_list:
-        msg="ID already Registered !"
-    else:
-        if name=="" or ID=="" or section=="":
-            msg="Please Enter Name, ID and Section"
+        info_dic = {
+            "Name": name,
+            "ID": ID,
+            "Section": section,
+            "Department":dep,
+            "Payment Status":payment,
+        }
+        if ID in id_list:
+            msg="ID already Registered !"
         else:
-            student_info = read_file()
-            student_info.append(info_dic)
-            write_file(student_info)
+            if name=="" or ID=="" or section=="":
+                msg="Please Enter Name, ID and Section"
+            else:
+                student_info = read_file()
+                student_info.append(info_dic)
+                write_file(student_info)
 
-            msg = "Registration Complete !!"
+                msg = "Registration Complete !! "
+        return render(request, "add_reg.html", {"msg": msg})
+    else:
+        return render(request, "add_reg.html")
 
-    return render(request, "reg_com.html", {"msg": msg})
+                
+
 
 def del_registration(request):
     
