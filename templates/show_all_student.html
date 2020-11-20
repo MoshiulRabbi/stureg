@@ -5,10 +5,21 @@
 
 <center>
 
-    <h1 style="text-align: center;"> Information of all Students</h1>
-    <h2>Number of Students Registered: {{ num_of_students }}<br><br></h2>
+    <h1 style="text-align: center;"> Information of all Students<br></h1>
+    <br>
+    <h3>Number of Students Registered: {{ num_of_students }}<br><br></h2>
     {% for item in all_student %}
-        <h3><br>{{ item }}<br></h3>
+    <div class="card border-dark mb-3" style="max-width: 18rem;">
+    <div class="card-header"><strong>{{ item.Name }}</strong></div>
+    <div class="card-body text-dark">
+    <h5 class="card-title"><strong>ID: {{ item.ID }}</h5></strong>
+    <p class="card-text"><h4>Section: {{ item.Section }}</h4>
+    <h4>Department: {{ item.Department }}</h4>
+    <h4>Payment Status: {{ item.Payment_Status }}</h4>
+    </p>
+  </div>
+</div>
+      
     {% endfor %}
 
     </center>

@@ -4,48 +4,27 @@
         "ID": "191-15-12302",
         "Section": "o10",
         "Department": "CSE",
-        "Payment Status": "paid"
-    },
-    {
-        "Name": "Masud Ahmed",
-        "ID": "191-15-12364",
-        "Section": "o10",
-        "Department": "CSE",
-        "Payment Status": "paid"
-    },
-    {
-        "Name": "Julie",
-        "ID": "123",
-        "Section": "M",
-        "Department": "CSE",
-        "Payment Status": "paid"
-    },
-    {
-        "Name": "Asif",
-        "ID": "191-15-12508",
-        "Section": "o10",
-        "Department": "CSE",
-        "Payment Status": "paid"
+        "Payment_Status": "paid"
     },
     {
         "Name": "Rabbi",
-        "ID": "191-15-12574",
-        "Section": "o10",
+        "ID": "123-45",
+        "Section": "o-10",
         "Department": "CSE",
-        "Payment Status": "paid"
+        "Payment_Status": "Paid"
     },
     {
-        "Name": "test",
-        "ID": "12345",
-        "Section": "hgh",
-        "Department": "fhsh",
-        "Payment Status": "hgh"
+        "Name": "Asif ",
+        "ID": "191-15-12508",
+        "Section": "o-10",
+        "Department": "CSE",
+        "Payment_Status": "Paid"
     },
     {
-        "Name": "tyyy",
-        "ID": "555",
-        "Section": "yjy",
-        "Department": "thy",
-        "Payment Status": "jyj"
+        "Name": "Habiba",
+        "ID": "12",
+        "Section": "o-10",
+        "Department": "Masud",
+        "Payment_Status": "Call-Masud"
     }
 ]

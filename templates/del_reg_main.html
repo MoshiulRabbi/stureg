@@ -3,17 +3,8 @@
 {% block body %}
 
 
-<style>
-    .msg{
-        position:absolute;
-        top: 200px;
-        left: 500px;
-        text-align: center;
-    }
+   <h2 class="msg" >{{msg}} <a href="{% url 'del_registration' %}"><center><i class="fa fa-arrow-circle-left" style="font-size:36px"></i></a></h2> </center>
 
-</style>
-<body bgcolor="lightslategrey">
-   <h2 class="msg">{{msg}}</h2> 
 
 
 {% endblock %}

@@ -103,7 +103,7 @@ def student_info(request):
             "ID": ID,
             "Section": section,
             "Department":dep,
-            "Payment Status":payment,
+            "Payment_Status":payment,
         }
         if ID in id_list:
             msg="ID already Registered !"

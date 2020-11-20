@@ -2,17 +2,20 @@
 {% block body %}
 
 <center>
-    <h2>You are Looking For:</h2>
+
+<h2>You are Looking For:</h2>
+<div class="msg">
+
     {% if id not in id_list %}
     <h2 style="font-family: arial;">Student Not Registered or invalid ID</h2>
     {% else %}
     {% for key,value in info.items %}
     <h3 style="font-family: arial;">{{key}} : {{value}}</h3>
+
     {% endfor %}
     {% endif %}
-
+    <a href="{% url 'search_info' %}"><center><i class="fa fa-arrow-circle-left" style="font-size:36px"></i></a> </center>
+</div>
 
 </center>
-
-
 {% endblock %}
