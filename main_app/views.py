@@ -14,6 +14,9 @@ def show_info(request):
 def search_info(request):
     return render(request,"search_info.html")
 
+def about_us(request):
+    return render(request,"about_us.html")
+
 
 
 def search_by_id(request):
@@ -39,7 +42,7 @@ def search_by_id(request):
             if item["ID"] == ID:
                 msg=item
     else:
-        msg="Student not Registered."
+        msg="Student not Registered or Invalid ID."
     return render(request,"single_info.html",{"info":msg,"id_list":id_list,"id":ID})
 
 

@@ -1,15 +1,15 @@
 
-{% extends "layout.html" %} 
+{% extends "layout.html" %} {% load static %}
 {% block body %}
 
 <div class="card text-center card bg-light" >
-  <img src="https://scontent.fdac100-1.fna.fbcdn.net/v/t1.0-9/105978864_335114277856659_2743100363999487009_o.jpg?_nc_cat=103&ccb=2&_nc_sid=8bfeb9&_nc_ohc=CDFtamS5IYMAX_0y43C&_nc_ht=scontent.fdac100-1.fna&oh=5b9a19a50e13378fc9763773d8146964&oe=5FDD520A" width="640" height="300" class="card-img-top" alt="..." class="card-img-top" alt="...">
+  <img src="{% static 'img/team/diu.jpg' %}" width="640" height="300" class="card-img-top" alt="..." class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">Student Registration System</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.<br>Designing sucksssssss</p>
-
-    <a href="#" class="btn btn-secondary">Project Proposal</a>
-    <a href="#" class="btn btn-info">About US</a>
+    <p class="card-text">This is a prototype of a Student Registration System Developed by team VENOM<br>
+        This website is under contruction. There are a lot more to come.
+    </p>
+    <a href="/about_us" class="btn btn-info">About US</a>
   </div>
 </div>
 
