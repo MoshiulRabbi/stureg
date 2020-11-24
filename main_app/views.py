@@ -1,24 +1,51 @@
+
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.urls import reverse
+from django.http import HttpResponse,HttpResponseRedirect
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 import json
 
 
 def home_view(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse("login"))
     return render(request, "home.html")
 
+        
 
+@login_required
 def show_info(request):
     return render(request, "add_reg.html")
 
-
+@login_required
 def search_info(request):
     return render(request,"search_info.html")
 
+
+@login_required
 def about_us(request):
     return render(request,"about_us.html")
 
 
 
+def login_view(request):
+    if request.method == "POST":
+        username = request.POST["username"]
+        password = request.POST["password"]
+
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return HttpResponseRedirect(reverse("home"))
+        else:
+            return render(request, "login.html",{"messege":"Invalid Credentials."})
+    else:   
+        return render(request, "login.html")
+
+
+@login_required
 def search_by_id(request):
     def read_file():
         try:
@@ -46,6 +73,9 @@ def search_by_id(request):
     return render(request,"single_info.html",{"info":msg,"id_list":id_list,"id":ID})
 
 
+
+
+@login_required
 def show_all_student(request):
     def read_file():
         try:
@@ -65,7 +95,7 @@ def show_all_student(request):
     return render(request,"show_all_student.html",{"all_student":all_student,"num_of_students":num_of_students})
 
 
-
+@login_required
 def student_info(request):
 
     if request.method == "POST":
@@ -123,13 +153,25 @@ def student_info(request):
     else:
         return render(request, "add_reg.html")
 
-                
+    
 
 
+@login_required
+def logout_view(request):
+    logout(request)
+    return render(request, "login.html", {"messege":"LOGGED OUT"})
+
+
+
+@login_required
 def del_registration(request):
     
     return render(request,"del_registration.html")
 
+
+
+
+@login_required
 def del_reg_main(request):
     def read_file():
         try:
@@ -174,3 +216,6 @@ def del_reg_main(request):
             msg="Information Deleted Successfully !!"
         
     return render(request,"del_reg_main.html",{"msg":msg})
+
+
+
