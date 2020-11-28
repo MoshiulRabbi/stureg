@@ -11,7 +11,5 @@ urlpatterns = [
     path('del_registration/',views.del_registration,name="del_registration"),
     path('del_registration/del_id/',views.del_reg_main,name="del_reg_main"),
     path('about_us/',views.about_us,name="about_us"),
-    path('login/',views.login_view,name="login"),
-    path("logout", views.logout_view, name = "logout" ),
 
 ]
