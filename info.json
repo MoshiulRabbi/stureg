@@ -13,25 +13,4 @@
         "Department": "CSE",
         "Payment_Status": "Paid"
     },
-    {
-        "Name": "Asif ",
-        "ID": "191-15-12508",
-        "Section": "o-10",
-        "Department": "CSE",
-        "Payment_Status": "Paid"
-    },
-    {
-        "Name": "Habiba",
-        "ID": "12",
-        "Section": "o-10",
-        "Department": "Masud",
-        "Payment_Status": "Call-Masud"
-    },
-    {
-        "Name": "test",
-        "ID": "123",
-        "Section": "t",
-        "Department": "t",
-        "Payment_Status": "t"
-    }
 ]
