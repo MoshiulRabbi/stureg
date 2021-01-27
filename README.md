@@ -2,7 +2,7 @@
 
 University Group Project
 
-Added here to feel how real time project production deployment works with cloud.
+Added here to feel how real time production deployment works with cloud.
 
 Disabled users Login functionality for demonstrating
 
