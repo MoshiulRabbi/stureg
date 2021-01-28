@@ -43,33 +43,18 @@ def login_view(request):
 '''
 
 
-
-#Read json and converting to dic.
-def read_file():
-    try:
-        with open("info.json", "r") as project_json:
-            file = project_json.read()
-            info_list = json.loads(file)
-            project_json.close()
-            return info_list
-
-    except:
-        return []
-
-
-
-#Writing file
-def write_file(array):
-    with open("info.json", "w+") as project_json:
-        content = json.dumps(array, indent=4)
-        project_json.writelines(content)
-        project_json.close()
-
-
-
-
-
 def search_by_id(request):
+    def read_file():
+        try:
+            with open("info.json", "r") as project_json:
+                file = project_json.read()
+                info_list = json.loads(file)
+                project_json.close()
+                return info_list
+
+        except:
+            return []
+
     
     ID = request.GET["id"]
     file = read_file()
@@ -88,9 +73,21 @@ def search_by_id(request):
 
 
 def show_all_student(request):
+    def read_file():
+        try:
+            with open("info.json", "r") as project_json:
+                file = project_json.read()
+                info_list = json.loads(file)
+                project_json.close()
+                return info_list
+
+        except:
+            return []
 
     all_student=read_file()
     num_of_students=len(all_student)
+
+
     return render(request,"show_all_student.html",{"all_student":all_student,"num_of_students":num_of_students})
 
 
@@ -98,6 +95,27 @@ def show_all_student(request):
 def student_info(request):
 
     if request.method == "POST":
+
+
+        def read_file():
+            try:
+                with open("info.json", "r") as project_json:
+                    file = project_json.read()
+                    info_list = json.loads(file)
+                    project_json.close()
+                    return info_list
+
+            except:
+                return []
+
+
+        def write_file(array):
+            with open("info.json", "w+") as project_json:
+                content = json.dumps(array, indent=4)
+                project_json.writelines(content)
+                project_json.close()
+
+
         file = read_file()
         id_list = []
         for item in file:
@@ -142,7 +160,8 @@ def logout_view(request):
 
 
 
-def del_registration(request):    
+def del_registration(request):
+    
     return render(request,"del_registration.html")
 
 
@@ -150,6 +169,22 @@ def del_registration(request):
 
 
 def del_reg_main(request):
+    def read_file():
+        try:
+            with open("info.json", "r") as project_json:
+                file = project_json.read()
+                info_list = json.loads(file)
+                project_json.close()
+                return info_list
+
+        except:
+            return []
+
+    def write_file(array):
+        with open("info.json", "w+") as project_json:
+            content = json.dumps(array, indent=4)
+            project_json.writelines(content)
+            project_json.close()
 
     ID=request.GET["id"]
     my_file=read_file()
@@ -162,9 +197,11 @@ def del_reg_main(request):
     if ID== "":
         msg="Please Enter an ID!!"
     else:
+    
         if ID not in id_list:
             msg="ID Not Registered"
         else:
+            
             for item in my_file:
                 if item["ID"] == ID:
                     deleted=item
