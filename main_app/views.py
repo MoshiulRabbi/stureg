@@ -42,10 +42,6 @@ def add_student(request):
 
 
 
-
-
-
-
 def show_all_student(request):
     students = StudentInfo.objects.all()
     c = StudentInfo.objects.count()
@@ -54,18 +50,30 @@ def show_all_student(request):
 
 
 
-
-
-
 def search(request):
     query = request.GET.get("id")
     
     if query:
-        s = StudentInfo.objects.all()
-        student = s.filter(id__contains=query)
+        if not StudentInfo.objects.filter(id__contains=query).exists():
+            msg = "This Id is not registered "
+            return render(request,"single_info.html",{"msg":msg})
+        else:
+            student = StudentInfo.objects.filter(id__contains=query)
+            
         return render(request,"single_info.html",{"student":student})
     else:
         return render(request,"search_info.html")
+
+
+
+
+
+def delete(request,pk):
+    student = StudentInfo.objects.get(pk=pk)
+    student.delete()
+    msg = "Deleted Successfully"
+
+    return render(request,"delete_success.html",{"msg":msg})
 
 
 
@@ -88,15 +96,7 @@ def login_view(request):
     else:   
         return render(request, "login.html")
 '''
-
-
-
-
-
-
-
-#aDD STUDENT        
-    
+ 
 
 '''
 

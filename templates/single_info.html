@@ -6,6 +6,12 @@
 
 <center>
 
+
+  {% if msg %}
+<div class="alert alert-warning" role="alert"><strong>{{msg}}</strong></div>
+{% else %}
+
+
     <h2>You are Looking For:</h2>
     <br>
     {% for student in student %}
@@ -21,7 +27,7 @@
     </p>
   </div>
 </div>
-
+{% endif %} 
     </center>
 
 {% endblock %}

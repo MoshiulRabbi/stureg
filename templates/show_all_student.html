@@ -5,6 +5,13 @@
 
 <center>
 
+  {% if msg %}
+<div class="alert alert-warning" role="alert"><strong>{{msg}}</strong></div>
+{% endif %} 
+
+
+
+
     <h1 style="text-align: center;"> Information of all Students<br></h1>
     <br>
     <h3>Number of Students Registered: {{c}}<br><br></h2>
@@ -16,7 +23,12 @@
     <p class="card-text"><h4>Section: {{ student.section }}</h4>
     <h4>Department: {{ student.department }}</h4>
     <h4>Payment Status: {{ student.payment }}</h4>
-    <button>Delete</button>
+
+    <button type="button">
+      <a href="{% url 'delete' student.id %}">Delete !</a>
+  </button>
+
+
     </p>
   </div>
 </div>
