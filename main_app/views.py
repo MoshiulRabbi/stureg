@@ -11,7 +11,10 @@ from django.views.decorators.csrf import csrf_exempt
 
 
 def home(request):
-    return render(request, "home.html")
+    if request.user.is_authenticated:
+        return render(request, "home.html")
+    else:
+        return render(request,"login.html")
 
 
 @csrf_exempt
@@ -81,7 +84,7 @@ def about(request):
     return render(request,"about_us.html")
 
 
-'''
+
 def login_view(request):
     if request.method == "POST":
         username = request.POST["username"]
@@ -95,15 +98,15 @@ def login_view(request):
             return render(request, "login.html",{"messege":"Invalid Credentials."})
     else:   
         return render(request, "login.html")
-'''
+
  
 
-'''
+
 
 def logout_view(request):
     logout(request)
     return render(request, "login.html", {"messege":"LOGGED OUT"})
-'''
+
 
 
 

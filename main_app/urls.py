@@ -9,6 +9,8 @@ urlpatterns = [
     # path('search',views.search,name="search"),
 
     path('',views.home,name="home"),
+    path('login/',views.login_view,name="login"),
+    path('logout/',views.logout_view,name="logout"),
     path('search/',views.search,name="search"),
     path('about/',views.about,name="about"),
     path('show_all_students/',views.show_all_student,name="show_all_students"),
