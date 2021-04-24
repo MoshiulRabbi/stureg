@@ -11,4 +11,6 @@ https://stureg.azurewebsites.net/
 >can take 30sec to open the site (the server) for the first time, as im using azure free tier :no_mouth:
 
 
-git clone, install requirements.txt, (No migration as data stored in json) and run "python manage.py runserver" and it'll up ( localhost )
+git clone, install requirements.txt, migrate ( check this [documantation]  ) and run "python manage.py runserver" and it'll up ( localhost )
+
+[documantation]: https://docs.djangoproject.com/en/3.1/intro/tutorial01/#the-development-server
